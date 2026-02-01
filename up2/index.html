@@ -1,0 +1,1167 @@
+<!DOCTYPE html><html lang="pt-BR"><head>
+     <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+    	
+		body, p, span, a, li, h1, h2, h3, h4, h5, h6, button, input, textarea {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+</style>
+ 
+<!-- <script
+	src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+	data-token="fdb03505-2988-4eb8-a02d-e81fa6e532d0"
+>
+</script> 
+-->
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <title>Ganhe Pix - Saque Solicitado</title>
+  <link rel="icon" href="images/x2.png" type="image/x-icon">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      
+     background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      min-height: 100vh;
+      color: #333;
+      line-height: 1.5;
+      overflow-x: hidden;
+      padding: 0;
+    }
+
+    /* Header melhorado */
+    .header {
+      width: 100%;
+      background: linear-gradient(135deg, #27ae60, #2ecc71);
+      color: white;
+      font-weight: 700;
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 16px;
+      box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(45deg,
+          transparent,
+          rgba(255, 255, 255, 0.1),
+          transparent);
+      animation: shine 3s infinite;
+    }
+
+    @keyframes shine {
+      0% {
+        transform: translateX(-100%) translateY(-100%) rotate(45deg);
+      }
+
+      100% {
+        transform: translateX(100%) translateY(100%) rotate(45deg);
+      }
+    }
+
+    /* Container principal mobile */
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+      padding: 15px;
+    }
+
+    /* Seção do saldo melhorada */
+    #p1 {
+      width: 100%;
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      backdrop-filter: blur(10px);
+      position: relative;
+      overflow: hidden;
+    }
+
+    #p1::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+     
+      animation: shine 4s infinite;
+    }
+
+    #logo {
+      width: 120px;
+      height: auto;
+      border-radius: 8px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .boxSaldo {
+     background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+      border-radius: 12px;
+      padding: 12px 16px;
+      box-shadow: 0 6px 20px rgba(9, 99, 168, 0.3);
+      position: relative;
+      z-index: 1;
+    }
+
+    .textoSaldo {
+      font-size: 11px;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .valorSaldo {
+      font-size: 16px;
+      font-weight: 800;
+      color: white;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Conteúdo principal mobile */
+    #produto1 {
+      width: 100%;
+      background: white;
+      border-radius: 16px;
+      padding: 25px 20px;
+      text-align: center;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      margin-bottom: 20px;
+    }
+
+    /* Título de sucesso */
+    .success-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: #0963a8;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Valor retirado destacado */
+    .withdrawal-amount {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  padding: 22px 20px;
+  border-radius: 14px;
+  margin: 22px 0;
+ 
+  position: relative;
+  overflow: hidden;
+}
+
+.withdrawal-amount::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255,255,255,0.25),
+    transparent
+  );
+  animation: shine-money 2.8s infinite;
+}
+
+@keyframes shine-money {
+  0% { left: -100%; }
+  60% { left: 100%; }
+  100% { left: 100%; }
+}
+
+
+    .withdrawal-label {
+  font-size: 17px;
+  font-weight: 800;
+  margin-bottom: 10px;
+  letter-spacing: 0.4px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.25);
+}
+
+
+    .withdrawal-value {
+  font-size: 36px;
+  font-weight: 900;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  text-shadow:
+    0 2px 6px rgba(0,0,0,0.35);
+  
+}
+
+
+
+
+    /* Texto de processamento */
+    .processing-info {
+      background: rgba(9, 99, 168, 0.1);
+      border: 2px solid rgba(9, 99, 168, 0.2);
+      border-radius: 12px;
+      padding: 18px;
+      margin: 20px 0;
+      font-size: 16px;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    .processing-days {
+      color: #0963a8;
+      font-weight: 700;
+      font-size: 15px;
+    }
+
+    /* Seção de antecipação */
+    
+.anticipation-section {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  padding: 25px;
+  border-radius: 14px;
+  text-align: center;
+
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.45);
+
+  animation: pulseGreen 2.2s ease-in-out infinite;
+}
+
+@keyframes pulseGreen {
+  0%, 100% {
+    transform: scale(1);
+    box-shadow: 0 6px 20px rgba(46, 204, 113, 0.45);
+  }
+  50% {
+    transform: scale(1.015);
+    box-shadow: 0 10px 28px rgba(46, 204, 113, 0.65);
+  }
+}
+
+
+
+
+
+   .anticipation-text {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.55;
+  color: #ffffff;
+}
+
+
+    .immediate-text {
+      color: #fff;
+      font-weight: 700;
+      font-size: 18px;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    }
+
+    .price-highlight {
+
+        background: rgba(255, 255, 255, 0.25);
+        padding: 8px 16px;
+        border-radius: 20px;
+        font-weight: 800;
+        font-size: 18px;
+        display: inline-block;
+        margin: 10px 0;
+      }
+
+
+
+    /* Alerta de urgência */
+    .urgency-alert {
+      background: linear-gradient(135deg, #e74c3c, #c0392b);
+      color: white;
+      padding: 18px;
+      border-radius: 12px;
+      margin: 20px 0;
+      text-align: center;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 6px 20px rgba(231, 76, 60, 0.3);
+      animation: pulse-gentle 3s infinite;
+    }
+
+    @keyframes pulse-gentle {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.01);
+      }
+    }
+
+    /* Container do vídeo mobile */
+    .video-section {
+      margin: 25px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    }
+
+    #vid_6826c29c2253902591ea0d24 {
+      position: relative;
+      width: 100%;
+      padding: 56.25% 0 0;
+      /* 16:9 aspect ratio para mobile */
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    #thumb_6826c29c2253902591ea0d24 {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+
+    #backdrop_6826c29c2253902591ea0d24 {
+      -webkit-backdrop-filter: blur(5px);
+      backdrop-filter: blur(5px);
+      position: absolute;
+      top: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    /* Botão CTA mobile otimizado */
+    .cta-container {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 25px 0;
+    }
+
+    .cta-link {
+      width: 100%;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cta-button {
+  background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+  color: white;
+  border: none;
+  border-radius: 50px;
+
+  width: 100%;
+  max-width: 340px; /* ⬅ diminui o botão */
+  height: 55px;
+
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+
+  margin: 0px auto; /* ⬅ centraliza e cria respiro */
+  animation: pulse-cta-fast 0.6s ease-in-out infinite;
+}
+
+
+   @keyframes pulse-cta-fast {
+  0% {
+    transform: scale(1);
+    
+  }
+
+  50% {
+    transform: scale(1.05); /* ⬅ forte, mas não estoura */
+    
+  }
+
+  100% {
+    transform: scale(1);
+   
+  }
+}
+
+
+    .cta-button:active {
+      transform: scale(0.98);
+      transition: transform 0.1s;
+    }
+
+    .cta-button::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg,
+          transparent,
+          rgba(255, 255, 255, 0.3),
+          transparent);
+      transition: left 0.5s;
+    }
+
+    .cta-button:active::before {
+      left: 100%;
+    }
+
+    /* Indicadores de confiança */
+    .trust-indicators {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 20px 0;
+      flex-wrap: wrap;
+    }
+
+    .trust-badge {
+      background: rgba(9, 99, 168, 0.1);
+      color: #0963a8;
+      padding: 6px 12px;
+      border-radius: 15px;
+      font-size: 11px;
+      font-weight: 600;
+      border: 1px solid rgba(9, 99, 168, 0.2);
+    }
+
+    /* Ajustes específicos para mobile */
+    @media (max-width: 480px) {
+      .container {
+        padding: 10px;
+      }
+
+      #p1,
+      #produto1 {
+        padding: 8px;
+        border-radius: 14px;
+      }
+
+      #logo {
+        width: 100px;
+      }
+
+      .success-title {
+        font-size: 20px;
+      }
+
+      .withdrawal-value {
+        font-size: 28px;
+      }
+
+      .cta-button {
+        height: 50px;
+        font-size: 15px;
+      }
+
+      .processing-info {
+        padding: 15px;
+        font-size: 15px;
+      }
+
+      .anticipation-section {
+        padding: 20px;
+      }
+
+      .anticipation-text {
+        font-size: 15px;
+      }
+    }
+
+    /* Otimizações de performance mobile */
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    /* Ajustes para iOS */
+    @supports (-webkit-touch-callout: none) {
+      .cta-button {
+        -webkit-appearance: none;
+        -webkit-tap-highlight-color: transparent;
+      }
+    }
+
+    .mute-button {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background: rgba(0, 0, 0, 0.6);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      transition: background 0.3s ease;
+    }
+
+    .mute-button:hover {
+      background: rgba(0, 0, 0, 0.8);
+    }
+  </style>
+
+<!-- <script
+	src="https://cdn.jsdelivr.net/gh/xTracky/static@latest/utm-handler.js"
+	data-token="fdb03505-2988-4eb8-a02d-e81fa6e532d0"
+>
+</script> 
+-->
+
+</head>
+
+<body>
+
+  <link rel="stylesheet" href="css/all.min.css">
+
+  <div class="header" style="
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px 16px;
+">
+    <i class="fas fa-check-circle"></i>
+    SAQUE SOLICITADO COM SUCESSO!
+  </div>
+
+  <div class="container">
+    <!-- Seção do saldo -->
+    <div id="p1">
+    <img id="logo" src="images/x2.png" alt="Logo Kwai">
+    <div class="boxSaldo">
+      <span class="textoSaldo">SALDO</span>
+      <span class="valorSaldo">
+        <span id="saldoSpan" class="saldoAtualizado">R$ 3.056,62</span>
+      </span>
+    </div>
+  </div>
+
+    <!-- Conteúdo principal -->
+    <div id="produto1">
+
+      <!-- Valor retirado destacado -->
+      <div class="withdrawal-amount" style="
+   background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%); /* ou o gradiente exato, se tiver */
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    color: white;
+">
+        <div class="withdrawal-label" style="font-size: 18px; margin-bottom: 8px;">
+          VALOR DO SAQUE:
+        </div>
+       <div class="withdrawal-value" style="font-size: 32px;  font-weight: bold;">
+  <span id="saldoSpan2">R$ 1.467,18</span>
+</div>
+
+      </div>
+
+      <!-- Informação de processamento -->
+     <div class="processing-info">
+  Seu saque foi <strong>solicitado com sucesso</strong><br>
+  e o valor já está sendo processado!
+
+  <div class="divider"></div>
+
+  <div>
+    <strong>
+      <span class="clock-icon"></span> Prazo de processamento do saque:
+    </strong><br>
+    <span class="processing-days">ATÉ 14 DIAS ÚTEIS</span>
+  </div>
+</div>
+
+<style>
+.divider {
+  height: 2px;              /* mais aparente */
+  background: #555;      /* azul claro visível */
+  margin: 18px 0 16px 0;    /* bem no meio das frases */
+}
+</style>
+
+
+<style>
+    .clock-icon {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 2px solid #555;
+  border-radius: 50%;
+  position: relative;
+  margin-right: 6px;
+  top: 2px;
+}
+
+.clock-icon::before {
+  content: "";
+  position: absolute;
+  width: 1.5px;
+  height: 5px;
+  background: #555;
+  top: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.clock-icon::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 1.5px;
+  background: #555;
+  top: 50%;
+  left: 50%;
+  transform: translate(-10%, -50%);
+}
+
+</style>
+
+<!-- Seção de antecipação -->
+<div class="anticipation-section">
+  <div class="anticipation-text">
+    ⚡ <strong>Quer receber IMEDIATAMENTE?</strong> <br><br>
+
+    <div style="font-weight:100; font-size:14px;">
+      Caso prefira, você pode antecipar a liberação do valor pagando apenas:
+
+
+      <div class="price-highlight">R$ 21,90</div>
+    </div>
+  </div>
+</div>
+
+
+
+
+      
+      <div class="cta-container">
+        <a href="https://www.pagamentos-seguro.link/checkout/144bea3d-6b5e-423c-ad72-94c75c9e3e5b" class="cta-link" onclick="preserveParams(event)">
+          <button class="cta-button">ANTECIPAR SAQUE</button>
+        </a>
+      </div>
+      
+    <!--   <div class="trust-badges"> -->
+        
+   <!--    <div class="live-proof" id="liveProof">
+  <span class="live-dot"></span>
+
+  <span class="live-text" id="liveText">
+    <strong>Marcos S.</strong> Antecipou e já recebeu o valor no PIX
+  </span>
+
+</div>
+
+<script>
+(function () {
+  const names = [
+    "Marcos S.",
+    "Juliana R.",
+    "Carlos M.",
+    "Patrícia L.",
+    "Fernando A.",
+    "Renata P.",
+    "Lucas T.",
+    "Ana C.",
+    "Bruno F.",
+    "Camila G.",
+    "Rafael D.",
+    "Daniela N.",
+    "Eduardo V.",
+    "Larissa H.",
+    "Gustavo B."
+  ];
+
+  let index = 0;
+
+  setInterval(function () {
+    const liveProof = document.getElementById("liveProof");
+    const liveText = document.getElementById("liveText");
+
+    // se ainda não existir, não quebra
+    if (!liveProof || !liveText) return;
+
+    index = (index + 1) % names.length;
+
+    // reinicia animação
+    liveProof.classList.remove("animate");
+    void liveProof.offsetWidth;
+
+    liveText.innerHTML =
+      "<strong>" + names[index] + "</strong> Antecipou e já recebeu o valor no PIX";
+
+    liveProof.classList.add("animate");
+  }, 3000);
+})();
+</script>
+
+
+      </div> 
+
+      <style>
+      .live-proof {
+  display: inline-flex; /* 🔥 essencial */
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  width: fit-content; /* 🔥 ajusta ao conteúdo */
+  max-width: 100%;
+
+  margin: 0 auto; /* 🔥 centraliza */
+
+  background: linear-gradient(135deg, #e8fff1, #f6fffa);
+  border: 1px solid #c8f5dc;
+  border-radius: 8px;
+  padding: 8px 12px;
+
+  font-size: 11.5px;
+  color: #1e4620;
+  box-shadow: 0 4px 10px rgba(0, 200, 83, 0.10);
+}
+
+/* Ponto */
+.live-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #00c853;
+  border-radius: 50%;
+  animation: pulseDot 1.6s infinite;
+  flex-shrink: 0;
+}
+
+/* Texto */
+.live-text {
+  white-space: nowrap; /* 🔥 evita quebrar linha */
+}
+
+.live-text strong {
+  font-weight: 700;
+  color: #0f5132;
+}
+
+
+/* Pulso mais suave */
+@keyframes pulseDot {
+  0% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 83, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 6px rgba(0, 200, 83, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 200, 83, 0);
+  }
+}
+
+      </style> -->
+      
+      <div class="faq-section">
+  <h2 class="faq-title">Dúvidas Frequentes</h2>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      Por que preciso pagar para antecipar meu saque?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      💡 Seu saque entra em uma <strong>fila de processamento</strong>, pois muitos usuários estão resgatando ao mesmo tempo.<br>
+      Ao <strong>antecipar pagando R$ 21,90</strong>, você garante <span class="highlight">prioridade imediata</span> e seu saque é liberado <strong>AGORA MESMO</strong>!
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      Quanto tempo leva para receber meu saque sem antecipação?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      O saque é processado em até <strong>14 dias úteis</strong>. Mas se antecipar, recebe imediatamente!
+    </div>
+  </div>
+
+  <div class="faq-item">
+    <button class="faq-question">
+      O pagamento da antecipação é seguro?
+      <span class="faq-icon">+</span>
+    </button>
+    <div class="faq-answer">
+      Sim! Utilizamos os mais altos padrões de segurança e criptografia para proteger seus dados.
+    </div>
+  </div>
+</div>
+
+<style>
+    .faq-section {
+  background: #f6fffa;
+  border-radius: 12px;
+  padding: 20px;
+  max-width: 100%;
+  box-shadow: 0 6px 20px rgba(39, 174, 96, 0.2);
+  margin: 20px 0;
+}
+
+.faq-title {
+  font-size: 20px;
+  font-weight: 800;
+  text-align: center;
+  color: #0963a8;
+  margin-bottom: 16px;
+}
+
+.faq-item {
+  margin-bottom: 12px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #ffffff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f5132;
+  background: linear-gradient(135deg, #e8fff1, #f6fffa);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background 0.3s;
+}
+
+.faq-question:hover {
+  background: linear-gradient(135deg, #d0ffe0, #e0fff5);
+}
+
+.faq-icon {
+  font-weight: 700;
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 16px; /* só horizontal por padrão */
+  font-size: 14px;
+  line-height: 1.5;
+  color: #333;
+  transition: max-height 0.4s ease, padding 0.4s ease;
+}
+
+.faq-answer.open {
+  max-height: 500px; /* altura máxima suficiente para qualquer resposta */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.faq-icon {
+  cursor: pointer;
+  font-weight: 700;
+  margin-left: 10px;
+}
+
+
+
+
+.faq-answer .highlight {
+  color: #27ae60;
+  font-weight: 700;
+}
+
+</style>
+
+<script>
+   const faqItems = document.querySelectorAll(".faq-item");
+
+faqItems.forEach(item => {
+  const question = item.querySelector(".faq-question");
+  const answer = item.querySelector(".faq-answer");
+  const icon = item.querySelector(".faq-icon");
+
+  question.addEventListener("click", () => {
+    const isOpen = answer.classList.contains("open");
+
+    // Fecha todos os outros
+    faqItems.forEach(i => {
+      i.querySelector(".faq-answer").classList.remove("open");
+      i.querySelector(".faq-icon").textContent = "+";
+    });
+
+    if (!isOpen) {
+      answer.classList.add("open");
+      icon.textContent = "−";
+    }
+  });
+});
+
+
+
+
+</script>
+
+      <!-- Vídeo -->
+      
+
+      <!-- Botão CTA -->
+    </div>
+  </div>
+  
+ <script>
+          // Contagem animada do saldo
+const saldoSpan2 = document.getElementById("saldoSpan2");
+let valorFinal = 3056.62;
+let valorAtual = 0;
+let incremento = valorFinal / 50;
+
+const interval = setInterval(() => {
+  valorAtual += incremento;
+  if (valorAtual >= valorFinal) {
+    valorAtual = valorFinal;
+    clearInterval(interval);
+  }
+  // Formata com vírgula e ponto milhar
+  saldoSpan2.textContent = "R$ " + valorAtual.toLocaleString('pt-BR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}, 25);
+
+
+
+
+    function preserveParams(event) {
+      event.preventDefault(); // Previne o redirecionamento imediato
+
+      const linkElement = event.currentTarget;
+      const baseUrl = new URL(linkElement.href);
+      const currentParams = new URLSearchParams(window.location.search);
+
+      // Adicionar apenas os parâmetros que ainda não estão no link
+      for (const [key, value] of currentParams.entries()) {
+        if (!baseUrl.searchParams.has(key)) {
+          baseUrl.searchParams.append(key, value);
+        }
+      }
+
+      // Redirecionar preservando os parâmetros
+      window.location.href = baseUrl.toString();
+    }
+
+    // DOM ContentLoaded para garantir que o DOM esteja completamente carregado
+    document.addEventListener("DOMContentLoaded", function () {
+      const valorSaque = localStorage.getItem("valorSaque") || "R$ 3.056,62"; // Valor padrão se não estiver no localStorage
+
+      const saldoSpan = document.getElementById("saldoSpan");
+      const saldoSpan2 = document.getElementById("saldoSpan2");
+
+      // Atualizar os valores do saldo
+      saldoSpan.textContent = valorSaque;
+      saldoSpan2.textContent = valorSaque;
+
+      const video = document.getElementById("localVideo");
+      const muteButton = document.getElementById("muteToggle");
+
+      muteButton.addEventListener("click", function () {
+        if (video.muted) {
+          video.muted = false;
+          muteButton.textContent = "🔊"; // Change icon to indicate unmuted
+        } else {
+          video.muted = true;
+          muteButton.textContent = "🔈"; // Change icon to indicate muted
+        }
+      });
+    });
+  </script>
+  
+  <style>
+.notificacao {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  background: #ffffff;
+  color: #1f2937;
+  padding: 14px 18px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translateY(20px);
+  transition: all 0.4s ease;
+  border-left: 5px solid #16A34A;
+  max-width: 380px;
+}
+
+.notificacao.mostrar {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.notificacao .foto {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #16A34A;
+  flex-shrink: 0;
+}
+
+.notificacao strong {
+  font-weight: 700;
+  color: #111827;
+}
+
+.notificacao .valor {
+  color: #16A34A;
+  font-weight: 700;
+}
+
+.notificacao .sub {
+  font-size: 12px;
+  color: #6b7280;
+}
+</style>
+
+
+<div id="notificacao" class="notificacao"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const pessoasOriginal = [
+    { nome: "Isaac P.", foto: "images/h1isaac.jpg" },
+    { nome: "Cristiano R.", foto: "images/h2cristiano.jpg" },
+    { nome: "Carlos E.", foto: "images/h3carlos.jpg" },
+    { nome: "Cleber S.", foto: "images/h4cleber.jpg" },
+    { nome: "Bruno H.", foto: "images/h5.jpg" },
+    { nome: "Rodrigo B.", foto: "images/h6.jpg" },
+    { nome: "Felipe N.", foto: "images/h7.jpg" },
+    { nome: "Gustavo O.", foto: "images/h8.jpg" },
+    { nome: "Marcos A.", foto: "images/h9.jpg" },
+    { nome: "André L.", foto: "images/h10.jpg" },
+    { nome: "Thiago C.", foto: "images/h11.jpg" },
+    { nome: "Paulo C.", foto: "images/h12.jpg" },
+    { nome: "Ricardo S.", foto: "images/h13.jpg" },
+    { nome: "Daniel B.", foto: "images/h14.jpg" },
+
+    { nome: "Gisele M.", foto: "images/m1gisele.jpg" },
+    { nome: "Juliana M.", foto: "images/m2juliana.jpg" },
+    { nome: "Carol G.", foto: "images/m3carol.jpg" },
+    { nome: "Lana P.", foto: "images/m4lana.jpg" },
+    { nome: "Camila V.", foto: "images/m6.jpg" },
+    { nome: "Patrícia A.", foto: "images/m7.jpg" },
+    { nome: "Larissa G.", foto: "images/m8.jpg" },
+    { nome: "Beatriz T.", foto: "images/m9.jpg" },
+    { nome: "Ana B.", foto: "images/m10.jpg" },
+    { nome: "Vanessa L.", foto: "images/m11.jpg" },
+    { nome: "Aline C.", foto: "images/m12.jpg" },
+    { nome: "Marlene R.", foto: "images/m13.jpg" },
+    { nome: "Dalva N.", foto: "images/m14.jpg" }
+  ];
+
+  const valores = [
+    "R$ 3.056,62",
+    "R$ 1.842,10",
+    "R$ 2.419,90",
+    "R$ 987,44"
+  ];
+
+  function shuffle(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  }
+
+  let pessoas = shuffle([...pessoasOriginal]);
+  let index = 0;
+
+  function mostrarNotificacao() {
+    if (index >= pessoas.length) {
+      pessoas = shuffle([...pessoasOriginal]);
+      index = 0;
+    }
+
+    const pessoa = pessoas[index++];
+    const valor = valores[Math.floor(Math.random() * valores.length)];
+    const notif = document.getElementById("notificacao");
+
+    notif.innerHTML = `
+      <img src="${pessoa.foto}" class="foto" alt="${pessoa.nome}">
+      <div>
+        <strong>${pessoa.nome}</strong> acabou de sacar <span class="valor">${valor}</span><br>
+        <span class="sub">Transferência confirmada via PIX</span>
+      </div>
+    `;
+
+    notif.classList.add("mostrar");
+
+    setTimeout(() => {
+      notif.classList.remove("mostrar");
+      setTimeout(mostrarNotificacao, 3500);
+    }, 2500);
+  }
+
+  setTimeout(mostrarNotificacao, 2000);
+
+});
+</script>
+
+
+
+
+</body></html>
